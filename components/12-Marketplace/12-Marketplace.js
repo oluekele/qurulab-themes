@@ -1,27 +1,27 @@
 import Link from "next/link";
-
+import Image from 'next/image'
 import CategoryEight from "../Category/CategoryEight";
 import Card from "../Cards/Card";
 import CounterFive from "../Counters/Counter-Five";
 import TestimonialFive from "../Testimonials/Testimonial-Five";
 import BlogGridMinimal from "../Blogs/BlogGridMinimal";
 import NewsletterFour from "../Newsletters/Newsletter-Four";
+import Hero from '../../public/images/gallery/hero-image.webp'
 
 const Marketplace = () => {
   return (
     <>
-      <div className="rbt-banner-5 height-650 bg_image bg_image--19">
+      <div className="rbt-banner-5 height-650 bg_image" style={{backgroundColor: '#000000', width: '100%', padding: '0 150px', display: 'flex'}}>
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
-              <div className="inner text-start">
-                <h2 className="title">
-                  <span className="text-decoration-underline">Histudy</span>{" "}
-                  Starter is a community for creative people
-                </h2>
+            <div className="col-md-12 ">
+              <div //inner
+               className=" text-start " style={{width: '85%'}}> 
+                <h2 className="title text-light">
+                  Create, Buy & Sell Courses, Events & Digital Assets on Mentorbliss
+                </h2> 
                 <p className="description">
-                  We just don&apos;t give our student only lecture but real life
-                  experience.
+                Mentorbliss makes learning and teaching more effective and seamless.
                 </p>
                 <div className="slider-btn rbt-button-group justify-content-start">
                   <Link
@@ -39,8 +39,11 @@ const Marketplace = () => {
                 </div>
               </div>
             </div>
+            
           </div>
+          
         </div>
+        <Image width={600} height={200} src={Hero} alt='image' style={{width: '700px', objectFit: 'cover'}}/>
       </div>
 
       <div className="rbt-category-area bg-color-white rbt-section-gapTop ">
@@ -58,9 +61,7 @@ const Marketplace = () => {
               <div className="section-title text-start">
                 <h2 className="title">Featured Courses</h2>
                 <p className="description mt--20">
-                  Learning communicate to global world and build Link bright
-                  future and career development, increase your skill with our
-                  histudy.
+                Join other students making a living with skills they have learnt from Mentorbliss. Learn skills you can sell to anyone anywhere in the world with ease. Learn at your own time and pace!
                 </p>
               </div>
             </div>
@@ -70,7 +71,7 @@ const Marketplace = () => {
                   className="rbt-btn btn-border icon-hover rounded-1" //radius-round
                   href="/course-filter-one-toggle"
                 >
-                  <span className="btn-text">Browse Histudy Courses</span>
+                  <span className="btn-text">Browse More Courses</span>
                   <span className="btn-icon">
                     <i className="feather-arrow-right"></i>
                   </span>
@@ -106,8 +107,9 @@ const Marketplace = () => {
           </div>
         </div>
       </div>
+      
+      <div className="rbt-rbt-blog-area rbt-section-gapTop  "  style={{backgroundColor: '#2f57ef'}}>  
 
-      <div className="rbt-rbt-blog-area rbt-section-gapTop bg-gradient-8 rbt-round-bottom-shape">
         <div className="wrapper pb--50 rbt-index-upper">
           <div className="container">
             <div className="row g-5 align-items-end mb--60">
@@ -115,9 +117,7 @@ const Marketplace = () => {
                 <div className="section-title text-start">
                   <h2 className="title color-white">Latest News</h2>
                   <p className="description color-white-off mt--20">
-                    Learning communicate to global world and build Link bright
-                    future and career development, increase your skill with our
-                    histudy.
+                  Join other students making a living with skills they have learnt from Mentorbliss. Learn skills you can sell to anyone anywhere in the world with ease. Learn at your own time and pace!
                   </p>
                 </div>
               </div>

@@ -4,5 +4,5 @@
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
   "/course-filter-one-open": "pages/course-filter-one-open.js",
-  "/blog-grid": "pages/blog-grid.js"
+  "/marketplace": "pages/marketplace.js"
 }

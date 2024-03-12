@@ -95,6 +95,8 @@
   z-index: -1;
 }
 
+
+
 .center::before,
 .center::after {
   content: '';

@@ -17,7 +17,7 @@ const NewsletterFour = () => {
               />
               <button
                 type="submit"
-                className="rbt-btn btn-md btn-gradient hover-icon-reverse radius-round"
+                className="rbt-btn btn-md  hover-icon-reverse radius-round" style={{Background: '#04AEED'}}
               >
                 <span className="icon-reverse-wrapper">
                   <span className="btn-text">Subscribe</span>

@@ -15,7 +15,7 @@ const HeaderStyleNine = () => {
           transparent="header-not-transparent header-sticky"
           gapSpaceBetween=""
           navigationEnd="rbt-navigation-end"
-          btnClass=" btn-gradient btn-sm hover-transform-none rounded-1" //rbt-switch-btn
+          btnClass="  btn-sm hover-transform-none rounded-1" //rbt-switch-btn btn-gradient
           btnText="Get Started"
         />
       </header>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 import logo from "../../../public/images/logo/logo.png";
+import Logo from "../../../public/images/logo/main-logo.webp";
 
 import Nav from "../Nav";
 import Category from "../Category/Category";
@@ -49,7 +50,7 @@ const HeaderSeven = ({
                 <div className="logo">
                   <Link href="/">
                     <Image
-                      src={logo}
+                      src={Logo}
                       width={152}
                       height={50}
                       priority={true}

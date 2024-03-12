@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import logo from "../../public/images/logo/logo.png";
+import Logo from "../../public/images/logo/main-logo.webp";
 
 import FooterData from "../../data/footer.json";
 import SingleFooter from "./FooterProps/SingleFooter";
@@ -21,7 +22,7 @@ const FooterThree = () => {
                       <div className="logo">
                         <Link href="/">
                           <Image
-                            src={logo}
+                            src={Logo}
                             width={152}
                             height={50}
                             priority={true}

@@ -124,24 +124,24 @@
       "left": [
         {
           "img": "/images/testimonial/client-01.png",
-          "title": "Martha Maldonado",
-          "position": "Executive Chairman",
-          "company": "@ Google",
-          "desc": "After the launch, vulputate at sapien sit amet, auctor iaculis lorem. In vel hend rerit."
+          "title": "Jervis Teh",
+          "position": "Entrepreneur",
+          "company": "@ Qurulab",
+          "desc": "Incredible course! Clear and practical. I applied what I learned immediately in my work. Highly recommend!"
         },
         {
           "img": "/images/testimonial/client-02.png",
-          "title": "Michael D. Lovelady",
+          "title": "Mr. Henry",
           "position": "CEO",
-          "company": "@ Google",
-          "desc": "Histudy education, vulputate at sapien sit amet, auctor iaculis lorem. In vel hend rerit. "
+          "company": "@ Qurulab",
+          "desc": "Best investment in my education! The bite-sized lessons and hands-on exercises make learning enjoyable. "
         },
         {
           "img": "/images/testimonial/client-03.png",
-          "title": "Valerie J. Creasman",
-          "position": "Executive Designer",
-          "company": "@ Google",
-          "desc": "Our educational, vulputate at sapien sit amet, auctor iaculis lorem. In vel hend rerit nisi. "
+          "title": "Sir Silas",
+          "position": "Snr. Developer",
+          "company": "@ Qurulab",
+          "desc": "This course is a gem! Short, sweet, and packed with valuable insights. Highly recommend!"
         },
         {
           "img": "/images/testimonial/client-04.png",
@@ -255,9 +255,9 @@
   ],
   "testimonialThree": [
     {
-      "tag": "EDUCATION FOR EVERYONE",
-      "title": "Student's Feedback",
-      "desc": "Learning communicate to global world and build a bright future and career development, increase your skill with our histudy.",
+      "tag": "LEARNING MADE EASY",
+      "title": "Learner's Testimonies",
+      "desc": "Read testimonies of students who are earning a living with digital skills and changing their lives with skills learnt on Mentorbliss.",
       "accordion": [
         {
           "heading": "headingOne",
