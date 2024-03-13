@@ -2,7 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
   "/course-filter-one-open": "pages/course-filter-one-open.js",
-  "/marketplace": "pages/marketplace.js"
+  "/blog-grid": "pages/blog-grid.js",
+  "/marketplace": "pages/marketplace.js",
+  "/student/student-dashboard": "pages/student/student-dashboard.js",
+  "/instructor/instructor-dashboard": "pages/instructor/instructor-dashboard.js"
 }

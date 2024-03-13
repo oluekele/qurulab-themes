@@ -8,6 +8,7 @@ import Category from "../Category/Category";
 import Nav from "../Nav";
 
 import logo from "../../../public/images/logo/logo.png";
+import Logo from "../../../public/images/logo/main-logo.webp";
 
 const HeaderEight = ({
   headerType,
@@ -49,7 +50,7 @@ const HeaderEight = ({
                 <div className="logo">
                   <Link href="/">
                     <Image
-                      src={logo}
+                      src={Logo}
                       width={152}
                       height={50}
                       priority={true}

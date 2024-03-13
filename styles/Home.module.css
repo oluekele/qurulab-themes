@@ -201,7 +201,9 @@
       rgb(var(--background-end-rgb)) 40%
     );
     z-index: 1;
+    
   }
+  
 }
 
 /* Tablet and Smaller Desktop */

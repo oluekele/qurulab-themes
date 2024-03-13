@@ -8,15 +8,17 @@ import BlogGridMinimal from "../Blogs/BlogGridMinimal";
 import NewsletterFour from "../Newsletters/Newsletter-Four";
 import Hero from '../../public/images/gallery/hero-image.webp'
 
+
 const Marketplace = () => {
   return (
     <>
-      <div className="rbt-banner-5 height-650 bg_image" style={{backgroundColor: '#000000', width: '100%', padding: '0 150px', display: 'flex'}}>
-        <div className="container">
+      <div className="rbt-banner-5 height-650 bg_image " //height-650
+      style={{backgroundColor: '#000000', width: '100%',  display: 'flex'}}>
+        <div className="container " style={{display: 'flex'}}>
           <div className="row">
-            <div className="col-md-12 ">
+            <div className="col-sm-12 col-md-6 " style={{display: 'flex', alignItems: 'center'}}>
               <div //inner
-               className=" text-start " style={{width: '85%'}}> 
+               className=" text-start " > 
                 <h2 className="title text-light">
                   Create, Buy & Sell Courses, Events & Digital Assets on Mentorbliss
                 </h2> 
@@ -38,12 +40,14 @@ const Marketplace = () => {
                   </Link>
                 </div>
               </div>
+              
             </div>
-            
+            <div className="col-sm-12 col-md-6">
+              <Image width={400} height={200} src={Hero} alt='image' style={{width: '600px', objectFit: 'cover', padding: '30px 0'}}/>
+            </div>
           </div>
           
         </div>
-        <Image width={600} height={200} src={Hero} alt='image' style={{width: '700px', objectFit: 'cover'}}/>
       </div>
 
       <div className="rbt-category-area bg-color-white rbt-section-gapTop ">
