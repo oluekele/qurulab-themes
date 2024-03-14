@@ -14,8 +14,8 @@ import FooterThree from "@/components/Footer/Footer-Three";
 import Separator from "@/components/Common/Separator";
 import { FaEyeSlash, FaEye } from 'react-icons/fa'
 import { useState } from "react";
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
+
 
 const Account = () => {
 
