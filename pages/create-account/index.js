@@ -90,7 +90,7 @@ const pw = document.getElementById('password')
                 <p className="">I Accept Win Reality Terms And Condition</p>
               </div>
               <button type='submit' className='bg-primary text-center rounded-2 w-100 text-white p-4 mb-4 border-0'>Create Account</button>  
-              <p>Already have an account? <Link href='/login' className='text-[orange] cursor-pointer'>Login</Link></p>        
+              <p>Already have an account? <Link href='/' className='text-[orange] cursor-pointer'>Login</Link></p>        
             </form>
           </div>
         </div>
