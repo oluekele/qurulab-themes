@@ -69,7 +69,7 @@ const HeaderSeven = ({
             </div>
             <div className="header-right">
               <div className="rbt-btn-wrapper d-none d-xl-block">
-                <Link className={`rbt-btn ${btnClass}`} href="#">
+                <Link className={`rbt-btn ${btnClass}`} href='/create-account'>
                   <span data-text={`${btnText}`}>{btnText}</span>
                 </Link>
               </div>
