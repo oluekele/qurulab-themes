@@ -27,7 +27,7 @@ const Account = () => {
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("")
     
-const pw = document.getElementById('password')
+
   
  
  const handleSubmit = (e) => {
@@ -87,7 +87,7 @@ const pw = document.getElementById('password')
                 <p className="">I Accept Win Reality Terms And Condition</p>
               </div>
               <button type='submit' className='bg-primary text-center rounded-2 w-100 text-white p-4 mb-4 border-0'>Login</button>  
-              <p>Don&apos;t have an account? <Link href='/' className='text-[orange] cursor-pointer'>Create Account</Link></p>        
+              <p>Don&apos;t have an account? <Link href='/create-account' className='text-[orange] cursor-pointer'>Create Account</Link></p>        
             </form>
           </div>
         </div>
