@@ -13,31 +13,71 @@ import HeaderTopBar from "@/components/Header/HeaderTopBar/HeaderTopBar";
 import FooterThree from "@/components/Footer/Footer-Three";
 import Separator from "@/components/Common/Separator";
 import { FaEyeSlash, FaEye } from 'react-icons/fa'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import validator from 'validator'
 
 
 const Account = () => {
 
   const [inputType, setInputType] = useState('password');
   const [isActive, setIsActive] = useState(false)
-  const [first_name, setFirstName] = useState("")
-  const [last_name, setLastName] = useState("")
-  const [phone_number, setPhoneNumber] = useState("")
-  const [password, setPassword] = useState("")
-  const [email, setEmail] = useState("")
-    
-
+   
+  const [fname, setFName] = useState(''); 
+  const [lname, setLName] = useState(''); 
+  const [phone, setPhone] = useState(''); 
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState(''); 
+  const [errors, setErrors] = useState({}); 
+  const [isFormValid, setIsFormValid] = useState(false); 
   
- 
- const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    if(pw.value = 'john'){
-      window.location = '/marketplace'
-      console.log('password' + " " + pw.value)
+
+  useEffect(() => { 
+      validateForm(); 
+  }, [fname, lname, phone, email, password]); 
+  // Validate form 
+  const validateForm = () => { 
+      let errors = {}; 
+      
+      if (!fname) { 
+          errors.fname = 'First Name is required.'; 
+      } 
+      if (!lname) { 
+          errors.lname = 'Last Name is required.'; 
+      } 
+      if (!phone) { 
+          errors.phone = 'Phone Number is required.'; 
+      } 
+
+      if (!email) { 
+          errors.email = 'Email is required.'; 
+      } else if (!/\S+@\S+\.\S+/.test(email)) { 
+          errors.email = 'Email is invalid.'; 
+      } 
+
+      if (!password) { 
+          errors.password = 'Password is required.'; 
+      } else if (password.length < 8) { 
+          errors.password = 'Password must be at least 8 characters.'; 
+      }else if(validator.isStrongPassword(password, { 
+        minLength: 8, minLowercase: 1, 
+        minUppercase: 1, minNumbers: 1, minSymbols: 1 
+    })) { 
+         
     }
-    
- };
+
+      setErrors(errors); 
+      setIsFormValid(Object.keys(errors).length === 0); 
+  }; 
+  // Submit 
+  const handleSubmit = (e) => { 
+    e.preventDefault();
+      if (isFormValid) { 
+          console.log('Form submitted successfully!'); 
+          window.location = '/marketplace'
+      } else { 
+          console.log('Form has errors. Please correct them.'); 
+      } 
+  }; 
 
   const handlePassword = (e)=>{
     if(setIsActive(!isActive)){
@@ -68,22 +108,32 @@ const Account = () => {
           <div className='w-full'>
             
             <form className=' flex flex-col items-center w-full' onSubmit={handleSubmit}>
-              <div className=' w-full'>
-                <label className='font-bold text-[#292828e7]'>Email Address</label>
-                <input type='email' name="email" placeholder='Enter Your Email Address' className='border-[1px] rounded-lg px-4 py-4 w-full my-2 outline-none' required/>
+              <div className=' w-100'>
+                <label className='font-bold '>Email Address</label>
+                <input type='email' value={email} placeholder='Enter Your Email Address' className=' px-4 py-4 w-full my-2 outline-none' required
+                onChange={(e) => setEmail(e.target.value)}  />
+                {errors.email && <p style={{color: 'red', marginBottom: '0px'}}>{errors.email}</p>}
                 <label className='font-bold text-[#292828e7]'>Phone Number</label>
-                <input type='text' name="phone" placeholder='Enter Your Phone Number' className='border-[1px] rounded-lg px-4 py-4 w-full my-2 outline-none' required/>
+                <input type='text' value={phone } placeholder='Enter Your Phone Number' className=' px-4 py-4 my-2 outline-none' required
+                onChange={(e) => setPhone(e.target.value)} />
+                {errors.phone && <p style={{color: 'red', marginBottom: '0px'}}>{errors.phone}</p>}
                 <label className='font-bold text-[#292828e7]'>Password</label>
                 <div className='relative w-full mt-1' style={{position: 'relative'}}>
-                  <input type={inputType} placeholder='Password' name="password" className='border-[1px] rounded-lg px-4 py-4 w-full relative outline-none' id='password' required/>
-                  { !isActive? <FaEyeSlash size={20} className=" cursor-pointer absolute  right-5" onClick={handlePassword} style={{position: 'absolute', right: '10', top: '15'}}/>:
-                      <FaEye size={20} className=" cursor-pointer absolute top-3 right-5" onClick={handlePassword} style={{position: 'absolute', right: '10', top: '15'}}/>
+                  <input type={inputType} placeholder='Password' value={password} className=' px-4 py-4 w-full relative outline-none' id='password' required
+                  onChange={(e) => setPassword(e.target.value)} />
+                  {errors.password && <p style={{color: 'red', marginBottom: '0px'}}>{errors.password}</p>}
+                  { !isActive? <FaEyeSlash size={20} className=" cursor-pointer " onClick={handlePassword} style={{position: 'absolute', right: '10', top: '15'}}/>:
+                      <FaEye size={20} className=" cursor-pointer " onClick={handlePassword} style={{position: 'absolute', right: '10', top: '15'}}/>
                   }
                 </div>
                 <label className='font-bold mt-3 text-[#292828e7]'>First Name</label>
-                <input type='text' name="firstName" placeholder= "Enter Your First Name" className='border-[1px] rounded-full p-4 w-full outline-none  mb-4' required/>
+                <input type='text' value={fname} placeholder= "Enter Your First Name" className=' p-4 outline-none  mb-4' required
+                onChange={(e) => setFName(e.target.value)} />
+                {errors.fname && <p style={{color: 'red', marginBottom: '0px'}}>{errors.fname}</p>}
                 <label className='font-bold text-[#292828e7]'>Last Name</label>
-                <input type='text' name="lastName" placeholder= "Enter Your Last Name" className='border-[1px] rounded-full p-4 w-full outline-none  mb-4' required/>
+                <input type='text' value={lname} placeholder= "Enter Your Last Name" className=' p-4 w-full outline-none  mb-4' required
+                onChange={(e) => setLName(e.target.value)} />
+                {errors.lname && <p style={{color: 'red', marginTop: '-5px'}}>{errors.lname}</p>} 
               </div>
               <div className='d-flex gap-2 w-100 my-3' style={{alignItems: 'center'}}>
                 <input type="checkbox" className="" style={{opacity: '1', position: 'relative', padding: '0', width: '20px'}} required/>

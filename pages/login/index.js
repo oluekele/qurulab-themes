@@ -13,32 +13,58 @@ import HeaderTopBar from "@/components/Header/HeaderTopBar/HeaderTopBar";
 import FooterThree from "@/components/Footer/Footer-Three";
 import Separator from "@/components/Common/Separator";
 import { FaEyeSlash, FaEye } from 'react-icons/fa'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import validator from 'validator'
 
 
 
 const Account = () => {
-
   const [inputType, setInputType] = useState('password');
   const [isActive, setIsActive] = useState(false)
-  const [first_name, setFirstName] = useState("")
-  const [last_name, setLastName] = useState("")
-  const [phone_number, setPhoneNumber] = useState("")
-  const [password, setPassword] = useState("")
-  const [email, setEmail] = useState("")
-    
 
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState(''); 
+  const [errors, setErrors] = useState({}); 
+  const [isFormValid, setIsFormValid] = useState(false); 
   
- 
- const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    if(pw.value = 'john'){
-      window.location = '/marketplace'
-      console.log('password' + " " + pw.value)
+
+  useEffect(() => { 
+      validateForm(); 
+  }, [ email, password]); 
+  // Validate form 
+  const validateForm = () => { 
+      let errors = {};  
+
+      if (!email) { 
+          errors.email = 'Email is required.'; 
+      } else if (!/\S+@\S+\.\S+/.test(email)) { 
+          errors.email = 'Email is invalid.'; 
+      } 
+
+      if (!password) { 
+          errors.password = 'Password is required.'; 
+      } else if (password.length < 8) { 
+          errors.password = 'Password must be at least 8 characters.'; 
+      }else if(validator.isStrongPassword(password, { 
+        minLength: 8, minLowercase: 1, 
+        minUppercase: 1, minNumbers: 1, minSymbols: 1 
+    })) { 
+         
     }
-    
- };
+
+      setErrors(errors); 
+      setIsFormValid(Object.keys(errors).length === 0); 
+  }; 
+  // Submit 
+  const handleSubmit = (e) => { 
+    e.preventDefault();
+      if (isFormValid) { 
+          console.log('Form submitted successfully!'); 
+          window.location = '/marketplace'
+      } else { 
+          console.log('Form has errors. Please correct them.'); 
+      } 
+  };
 
   const handlePassword = (e)=>{
     if(setIsActive(!isActive)){
@@ -71,11 +97,15 @@ const Account = () => {
             <form className=' flex flex-col items-center w-full' onSubmit={handleSubmit}>
               <div className=' w-full'>
                 <label className='font-bold text-[#292828e7]'>Email Address</label>
-                <input type='email' name="email" placeholder='Enter Your Email Address' className='border-[1px] rounded-lg px-4 py-4 w-full my-2 outline-none' required/>
+                <input type='email' value={email} placeholder='Enter Your Email Address' className=' px-4 py-4 w-full my-2 outline-none' required
+                onChange={(e) => setEmail(e.target.value)}  />
+                {errors.email && <p style={{color: 'red', marginBottom: '0px'}}>{errors.email}</p>}
                 
                 <label className='font-bold text-[#292828e7]'>Password</label>
                 <div className='relative w-full mt-1' style={{position: 'relative'}}>
-                  <input type={inputType} placeholder='Password' name="password" className='border-[1px] rounded-lg px-4 py-4 w-full relative outline-none' id='password' required/>
+                <input type={inputType} placeholder='Password' value={password} className=' px-4 py-4 w-full relative outline-none' id='password' required
+                  onChange={(e) => setPassword(e.target.value)} />
+                  {errors.password && <p style={{color: 'red', marginBottom: '0px'}}>{errors.password}</p>}
                   { !isActive? <FaEyeSlash size={20} className=" cursor-pointer absolute  right-5" onClick={handlePassword} style={{position: 'absolute', right: '10', top: '15'}}/>:
                       <FaEye size={20} className=" cursor-pointer absolute top-3 right-5" onClick={handlePassword} style={{position: 'absolute', right: '10', top: '15'}}/>
                   }
